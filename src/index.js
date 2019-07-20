@@ -9,16 +9,24 @@ import { ChefStatusProvider } from './globalState/ChefStatusProvider';
 
 export const AppContainer = () => {
     return (
-        <StoveTempProvider>
-            <WaterStatusProvider>
-                <ChefStatusProvider>
-                    <App />
-                </ChefStatusProvider>
-            </WaterStatusProvider>
-        </StoveTempProvider>
+        <ContextProvider>
+            <App />
+        </ContextProvider>
     )
 }
 
 ReactDOM.render(
     <AppContainer />, document.getElementById('root')
 );
+
+/*
+    Equivalent solution for ContextProvider
+    
+    <StoveTempProvider>
+        <WaterStatusProvider>
+            <ChefStatusProvider>
+                <App />
+            </ChefStatusProvider>
+        </WaterStatusProvider>
+    </StoveTempProvider>
+*/
