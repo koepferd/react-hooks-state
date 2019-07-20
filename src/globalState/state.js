@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { StoveTempProvider } from './StoveTempProvider';
+import { WaterStatusProvider } from './WaterStatusProvider';
+import { ChefStatusProvider } from './ChefStatusProvider';
 
 function ProviderComposer({ contexts, children }) {
     return contexts.reduceRight(
@@ -15,7 +17,9 @@ function ContextProvider({ children }) {
     return (
         <ProviderComposer
             contexts={[
-                <StoveTempProvider />,
+				<StoveTempProvider />,
+				<WaterStatusProvider />,
+				<ChefStatusProvider />
             ]}
         >
             {children}
